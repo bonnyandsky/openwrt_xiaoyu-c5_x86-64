@@ -28,7 +28,7 @@ lede\feeds.conf.default添加src-git helloworld https://github.com/fw876/hellowo
 make menuconfig
 make -j8 download V=s 下载dl库（国内请尽量全局科学上网）
 make -j1 V=s （-j1 后面是线程数。第一次编译推荐用单线程）即可开始编译你要的固件了。
-```bash
+```
 二次编译：
 ```bash
 cd lede
