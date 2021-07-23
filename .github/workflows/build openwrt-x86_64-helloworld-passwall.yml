@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 # 初始ip:192.168.0.1
 
-name: Build OpenWrt-X86_64-helloworld-passwall
+name: Build OpenWrt-x86_64-helloworld-passwall
 
 on:
   repository_dispatch:
@@ -23,9 +23,9 @@ env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: X86_64-helloworld-passwall.config
-  DIY_P1_SH: X86_64-helloworld-passwall-part1.sh
-  DIY_P2_SH: X86_64-helloworld-passwall-part2.sh
+  CONFIG_FILE: x86_64-helloworld-passwall.config
+  DIY_P1_SH: x86_64-helloworld-passwall-part1.sh
+  DIY_P2_SH: x86_64-helloworld-passwall-part2.sh
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   UPLOAD_COWTRANSFER: true
