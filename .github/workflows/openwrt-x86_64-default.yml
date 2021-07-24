@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 # 初始ip:192.168.0.1
 
-name: Build OpenWrt-x86_64-default
+name: OpenWrt-x86_64-default
 
 on:
   repository_dispatch:
