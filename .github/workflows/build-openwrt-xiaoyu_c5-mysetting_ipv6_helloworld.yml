@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 # 初始ip:192.168.0.1
 
-name: Build OpenWrt-xiaoyu_c5-default_ipv6_helloworld
+name: OpenWrt-xiaoyu_c5-mysetting_ipv6_helloworld
 
 on:
   repository_dispatch:
@@ -23,9 +23,9 @@ env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: xiaoyu_c5-default_ipv6_helloworld.config
-  DIY_P1_SH: xiaoyu_c5-default_ipv6_helloworld-part1.sh
-  DIY_P2_SH: xiaoyu_c5-default_ipv6_helloworld-part2.sh
+  CONFIG_FILE: xiaoyu_c5-mysetting_ipv6_helloworld.config
+  DIY_P1_SH: xiaoyu_c5-mysetting_ipv6_helloworld-part1.sh
+  DIY_P2_SH: xiaoyu_c5-mysetting_ipv6_helloworld-part2.sh
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   UPLOAD_COWTRANSFER: true
