@@ -21,7 +21,10 @@ sudo apt-get -y install build-essential asciidoc binutils bzip2 gawk gettext git
 git clone https://github.com/coolsnowwolf/lede
 cd lede
 ```
-lede\feeds.conf.default添加src-git helloworld https://github.com/fw876/helloworld
+lede\feeds.conf.default添加
+```bash
+src-git helloworld https://github.com/fw876/helloworld
+```
 ```bash
 ./scripts/feeds update -a
 ./scripts/feeds install -a
