@@ -12,3 +12,5 @@
 
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.0.1/g' package/base-files/files/bin/config_generate
+wget https://patch-diff.githubusercontent.com/raw/coolsnowwolf/lede/pull/7560.patch
+git apply 7560.patch
