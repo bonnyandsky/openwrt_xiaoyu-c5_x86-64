@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 # 初始ip:192.168.0.1
 
-name: OpenWrt-xiaoyu_c5-mysetting_ipv6_helloworld
+name: OpenWrt-xiaoyu_c5-temp
 
 on:
   repository_dispatch:
