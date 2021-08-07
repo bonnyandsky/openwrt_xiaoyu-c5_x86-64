@@ -8,8 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 # 初始ip:192.168.0.1
 
-name: OpenWrt-x86_64-mysetting_ipv6_helloworld
-
+name: OpenWrt-x86_64-temp
 on:
   repository_dispatch:
   workflow_dispatch:
