@@ -6,7 +6,7 @@
 #
 # https://github.com/P3TERX/Actions-OpenWrt
 # Description: Build OpenWrt using GitHub Actions
-# 初始ip:192.168.0.1
+# 初始ip:192.168.0.2
 
 name: OpenWrt-x86_64-mysetting_ipv6_helloworld
 
