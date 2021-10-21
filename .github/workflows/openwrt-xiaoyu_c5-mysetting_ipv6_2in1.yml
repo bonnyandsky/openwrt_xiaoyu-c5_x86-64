@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 # 初始ip:192.168.0.1
 
-name: openwrt-xiaoyu_c5-mysetting_ipv6_passwall
+name: openwrt-xiaoyu_c5-mysetting_ipv6_2in1
 
 on:
   repository_dispatch:
@@ -23,9 +23,9 @@ env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: xiaoyu_c5-mysetting_ipv6_passwall.config
-  DIY_P1_SH: xiaoyu_c5-mysetting_ipv6_passwall-part1.sh
-  DIY_P2_SH: xiaoyu_c5-mysetting_ipv6_passwall-part2.sh
+  CONFIG_FILE: xiaoyu_c5-mysetting_ipv6_2in1.config
+  DIY_P1_SH: xiaoyu_c5-mysetting_ipv6_2in1-part1.sh
+  DIY_P2_SH: xiaoyu_c5-mysetting_ipv6_2in1-part2.sh
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   UPLOAD_COWTRANSFER: false
