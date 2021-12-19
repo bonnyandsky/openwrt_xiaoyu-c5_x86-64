@@ -1,19 +1,19 @@
 [中文](https://p3terx.com/archives/build-openwrt-with-github-actions.html)
 
 编译步骤：
-```
+```bash
 sudo apt-get update
-```bash
+
 sudo apt-get -y install build-essential asciidoc binutils bzip2 gawk gettext git libncurses5-dev libz-dev patch python3 python2.7 unzip zlib1g-dev lib32gcc1 libc6-dev-i386 subversion flex uglifyjs git-core gcc-multilib p7zip p7zip-full msmtp libssl-dev texinfo libglib2.0-dev xmlto qemu-utils upx libelf-dev autoconf automake libtool autopoint device-tree-compiler g++-multilib antlr3 gperf wget curl swig rsync
-```
+
 sudo apt install ca-certificates
-```bash
+```
 git clone https://github.com/coolsnowwolf/lede
 
 cd lede
-```
-lede\feeds.conf.default添加
 ```bash
+lede\feeds.conf.default添加
+
 src-git helloworld https://github.com/fw876/helloworld
 src-git lienol https://github.com/xiaorouji/openwrt-passwall
 src-git opentopd https://github.com/sirpdboy/sirpdboy-package
