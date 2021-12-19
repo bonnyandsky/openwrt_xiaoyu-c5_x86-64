@@ -9,7 +9,7 @@ sudo apt-get -y install build-essential asciidoc binutils bzip2 gawk gettext git
 sudo apt install ca-certificates
 
 git clone https://github.com/coolsnowwolf/lede
-
+```bash
 cd lede
 ```
 lede\feeds.conf.default添加
