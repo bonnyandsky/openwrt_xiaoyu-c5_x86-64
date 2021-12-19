@@ -28,7 +28,7 @@ lede\feeds.conf.default添加
 src-git helloworld https://github.com/fw876/helloworld
 src-git lienol https://github.com/xiaorouji/openwrt-passwall
 src-git small8 https://github.com/kenzok8/small-package
-src-git opentopd https://github.com/sirpdboy/sirpdboy-package
+#src-git opentopd https://github.com/sirpdboy/sirpdboy-package
 #src-git kenzo https://github.com/kenzok8/openwrt-packages
 ```
 ```bash
