@@ -21,7 +21,7 @@ src-git opentopd https://github.com/sirpdboy/sirpdboy-package
 ```
 ```bash
 ./scripts/feeds update -a
-./scripts/feeds install -a
+./scripts/feeds install -a -f
 make menuconfig
 make -j8 download V=s 下载dl库（国内请尽量全局科学上网）
 make -j1 V=s （-j1 后面是线程数。第一次编译推荐用单线程）即可开始编译你要的固件了。
@@ -30,7 +30,7 @@ make -j1 V=s （-j1 后面是线程数。第一次编译推荐用单线程）即
 ```bash
 cd lede
 git pull
-./scripts/feeds update -a && ./scripts/feeds install -a
+./scripts/feeds update -a && ./scripts/feeds install -a -f
 make defconfig
 make -j8 download
 make -j$(($(nproc) + 1)) V=s
