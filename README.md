@@ -8,6 +8,14 @@
 
 ./scripts/feeds install -a -p passwall
 
+git clone https://github.com/sirpdboy/luci-app-netdata
+
+cp -r luci-app-netdata /workdir/openwrt/package/lean/luci-app-netdata
+
+git clone https://github.com/sirpdboy/luci-app-advanced
+
+cp -r luci-app-advanced /workdir/openwrt/package/lean/luci-app-advanced
+
 编译步骤：
 
 sudo apt-get update
