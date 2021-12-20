@@ -60,10 +60,10 @@ jobs:
         df -hT $PWD
         git clone $REPO_URL -b $REPO_BRANCH openwrt
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
-        git clone https://github.com/sirpdboy/luci-app-netdata
-        cp -r luci-app-netdata /workdir/openwrt/package/lean/luci-app-netdata
-        git clone https://github.com/sirpdboy/luci-app-advanced
-        cp -r luci-app-advanced /workdir/openwrt/package/lean/luci-app-advanced
+#        git clone https://github.com/sirpdboy/luci-app-netdata
+#        cp -r luci-app-netdata /workdir/openwrt/package/lean/luci-app-netdata
+#        git clone https://github.com/sirpdboy/luci-app-advanced
+#        cp -r luci-app-advanced /workdir/openwrt/package/lean/luci-app-advanced
 
     - name: Load custom feeds
       run: |
