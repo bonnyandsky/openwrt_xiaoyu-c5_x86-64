@@ -1,8 +1,11 @@
 [中文](https://p3terx.com/archives/build-openwrt-with-github-actions.html)
 
 ./scripts/feeds update helloworld 
+
 ./scripts/feeds install -a -p helloworld
+
 ./scripts/feeds update passwall
+
 ./scripts/feeds install -a -p passwall
 
 编译步骤：
