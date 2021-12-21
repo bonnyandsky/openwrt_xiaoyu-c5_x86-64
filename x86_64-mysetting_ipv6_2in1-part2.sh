@@ -13,7 +13,7 @@
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.0.1/g' package/base-files/files/bin/config_generate
 git clone https://github.com/sirpdboy/luci-app-advanced
-cp -r luci-app-advanced openwrt/package/luci-app-advanced
+cp -r luci-app-advanced package/luci-app-advanced
 
 # git clone https://github.com/sirpdboy/luci-app-advanced package/luci-app-advanced
 # git clone https://github.com/sirpdboy/netspeedtest package/netspeedtest
