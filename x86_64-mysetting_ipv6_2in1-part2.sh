@@ -12,10 +12,21 @@
 
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.0.1/g' package/base-files/files/bin/config_generate
-git clone https://github.com/sirpdboy/luci-app-advanced
-cp -r luci-app-advanced package/luci-app-advanced
 
+# 移除重复软件包
+rm -rf package/lean/luci-app-netdata
+rm -rf package/lean/luci-app-wrtbwmon
+
+# 添加额外软件包，不在根目录要用svn co，然后tree/main替换成trunk
 # git clone https://github.com/sirpdboy/luci-app-advanced package/luci-app-advanced
-# git clone https://github.com/sirpdboy/netspeedtest package/netspeedtest
-# git clone https://github.com/sirpdboy/luci-app-netdata package/luci-app-netdata
-# cp -r package/luci-app-netdata package/lean/
+git clone https://github.com/esirplayground/luci-app-poweroff package/luci-app-poweroff
+svn co https://github.com/sirpdboy/sirpdboy-package/trunk/luci-app-advanced package/luci-app-advanced
+svn co https://github.com/sirpdboy/sirpdboy-package/trunk/luci-app-netdata package/luci-app-netdata
+svn co https://github.com/sirpdboy/sirpdboy-package/trunk/luci-app-netspeedtest package/luci-app-netspeedtest
+
+# 流量监控
+svn co https://github.com/sirpdboy/sirpdboy-package/trunk/luci-app-wrtbwmon package/luci-app-wrtbwmon
+svn co https://github.com/sirpdboy/sirpdboy-package/trunk/wrtbwmon package/wrtbwmon
+
+./scripts/feeds update -a
+./scripts/feeds install -a
