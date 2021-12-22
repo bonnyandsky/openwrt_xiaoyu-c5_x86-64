@@ -174,20 +174,19 @@ jobs:
 
     - name: Upload firmware to release
       uses: ncipollo/release-action@v1
-#      if: steps.tag.conclusion == 'success' && !cancelled()
-#      env:
-#        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#      with:
-#        tag_name: ${{ steps.tag.outputs.release_tag }}
-#        body_path: release.txt
-#        files: ${{ env.FIRMWARE }}/*
       if: steps.organize.outputs.status == 'success' && env.UPLOAD_RELEASE == 'true' && !cancelled()
       with:
-        name: ${{ env.FILE_NAME }}_${{ env.DATE }} 
+        name: R${{ env.DATE }} for ${{ env.FILE_NAME }}
         artifacts: ${{ env.FIRMWARE }}/*
         allowUpdates: true
         tag: ${{ env.FILE_NAME }}
         token: ${{ secrets.GITHUB_TOKEN }}
+        body: |
+          This is OpenWrt firmware for X86_64
+          * 这是x86_64固件，集成的插件与PLUS一致
+          默认IP：10.10.10.10 默认密码：password
+          当前使用版本:【编译前的最后一次[➦主源码](https://github.com/coolsnowwolf/lede)更新记录】
+          ${{ env.useVersionInfo }}
 
     - name: Delete workflow runs
       uses: GitRML/delete-workflow-runs@main
