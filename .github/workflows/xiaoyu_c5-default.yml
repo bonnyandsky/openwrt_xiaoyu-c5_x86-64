@@ -32,7 +32,7 @@ env:
   UPLOAD_WETRANSFER: false
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
-  FILE_NAME: xiaoyu_c5-default
+  FILE_NAME: xiaoyu_c5_default
 
 jobs:
   build:
