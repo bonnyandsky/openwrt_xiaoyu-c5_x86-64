@@ -181,6 +181,19 @@ jobs:
 #        tag_name: ${{ steps.tag.outputs.release_tag }}
 #        body_path: release.txt
 #        files: ${{ env.FIRMWARE }}/*
+      if: steps.organize.outputs.status == 'success' && env.UPLOAD_RELEASE == 'true' && !cancelled()
+      with:
+        name: ${{ env.FILE_NAME }}_${{ env.DATE }} 
+        artifacts: ${{ env.FIRMWARE }}/*
+        allowUpdates: true
+        tag: ${{ env.FILE_NAME }}
+        token: ${{ secrets.GITHUB_TOKEN }}
+        body: |
+          This is OpenWrt firmware for X86_64
+          * 这是x86_64固件，集成的插件与PLUS一致
+          默认IP：192.168.0.1
+		      默认用户名：root
+		      默认密码：password
 
     - name: Delete workflow runs
       uses: GitRML/delete-workflow-runs@main
