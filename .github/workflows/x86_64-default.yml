@@ -32,7 +32,7 @@ env:
   UPLOAD_WETRANSFER: false
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
-  FILE_NAME: x86_64-default
+  FILE_NAME: x86_64_default
 
 jobs:
   build:
@@ -122,7 +122,7 @@ jobs:
       uses: actions/upload-artifact@main
       if: steps.compile.outputs.status == 'success' && env.UPLOAD_BIN_DIR == 'true'
       with:
-        name: OpenWrt_bin${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
+        name: bin_${{ env.FILE_NAME }}${{ env.FILE_DATE }}
         path: openwrt/bin
 
     - name: Organize files
@@ -130,10 +130,11 @@ jobs:
       if: steps.compile.outputs.status == 'success' && !cancelled()
       run: |
         cp openwrt/.config openwrt/bin/packages/build.config
-        cd $GITHUB_WORKSPACE/openwrt/bin/packages
+        cd openwrt/bin/packages
         tar -zcvf Packages.tar.gz */*
-        mv *.config *.tar.gz $GITHUB_WORKSPACE/openwrt/bin/targets/*/*
-        cd $GITHUB_WORKSPACE/openwrt/bin/targets/*/*
+        mv *.config *.tar.gz openwrt/bin/targets/*/*
+        cd openwrt/bin/targets/*/*
+        rm -rf packages sha256sums
         echo "FIRMWARE=$PWD" >> $GITHUB_ENV
         echo "::set-output name=status::success"
 
@@ -142,7 +143,7 @@ jobs:
       if: steps.organize.outputs.status == 'success' && env.UPLOAD_FIRMWARE == 'true' && !cancelled()
       with:
 #核对下文件名
-        name: OpenWrt_firmware_${{ env.DEVICE_NAME }}_${{ env.FILE_DATE }}
+        name: ${{ env.FILE_NAME }}${{ env.FILE_DATE }}
         path: ${{ env.FIRMWARE }}
 
     - name: Generate release tag
