@@ -173,7 +173,8 @@ jobs:
         echo "::set-output name=status::success"
 
     - name: Upload firmware to release
-      uses: softprops/action-gh-release@v1
+#      uses: softprops/action-gh-release@v1
+      uses: ncipollo/release-action@v1
 #      if: steps.tag.outputs.status == 'success' && !cancelled()
       if: steps.organize.outputs.status == 'success' && env.UPLOAD_RELEASE == 'true' && !cancelled()
 #      env:
