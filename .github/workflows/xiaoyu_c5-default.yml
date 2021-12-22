@@ -183,7 +183,7 @@ jobs:
 #        files: ${{ env.FIRMWARE }}/*
       if: steps.organize.outputs.status == 'success' && env.UPLOAD_RELEASE == 'true' && !cancelled()
       with:
-        name: R${{ env.DATE }} for ${{ env.FILE_NAME }}
+        name: ${{ env.FILE_NAME }}_${{ env.DATE }}
         artifacts: ${{ env.FIRMWARE }}/*
         allowUpdates: true
         tag: ${{ env.FILE_NAME }}
