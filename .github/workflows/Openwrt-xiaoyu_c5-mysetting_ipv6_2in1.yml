@@ -6,7 +6,7 @@
 # https://github.com/P3TERX
 #===============================================
 
-name: X86_64 OpenWrt
+name: xiaoyu_c5-mysetting_ipv6_2in1
 
 on:
   repository_dispatch:
@@ -16,8 +16,6 @@ on:
         description: 'SSH connection to Actions'
         required: false
         default: 'false'
-  schedule:
-    - cron: '0 22 * * *'
 
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
@@ -30,7 +28,7 @@ env:
   UPLOAD_FIRMWARE: false
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
-  FILE_NAME: x86_64
+  FILE_NAME: xiaoyu_c5-mysetting_ipv6_2in1
 
 jobs:
   build:
