@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 # 初始ip:192.168.0.1
 
-name: Openwrt-xiaoyu_c5-test
+name: Openwrt-xiaoyu_c5-mysetting_ipv6_2in1
 
 on:
   repository_dispatch:
@@ -32,7 +32,7 @@ env:
   UPLOAD_WETRANSFER: false
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
-  FILE_NAME: x86_64
+  FILE_NAME: xiaoyu_c5
 
 jobs:
   build:
