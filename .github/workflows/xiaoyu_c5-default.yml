@@ -191,6 +191,7 @@ jobs:
         body: |
           This is OpenWrt firmware for xiaoyu_c5
           * 默认IP：192.168.0.1
+          默认用户名：root
           默认密码：password
 
     - name: Delete workflow runs
