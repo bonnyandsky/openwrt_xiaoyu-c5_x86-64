@@ -188,11 +188,6 @@ jobs:
         allowUpdates: true
         tag: ${{ env.FILE_NAME }}
         token: ${{ secrets.GITHUB_TOKEN }}
-        body: |
-          This is OpenWrt firmware for X86_64
-          * 默认IP：192.168.0.1
-	    默认用户名：root
-	    默认密码：password
 
     - name: Delete workflow runs
       uses: GitRML/delete-workflow-runs@main
