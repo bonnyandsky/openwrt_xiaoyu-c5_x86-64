@@ -34,7 +34,6 @@ env:
   TZ: Asia/Shanghai
   FILE_NAME: xiaoyu_c5-default
 
-
 jobs:
   build:
     runs-on: ubuntu-20.04
