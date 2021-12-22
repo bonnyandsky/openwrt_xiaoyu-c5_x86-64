@@ -33,5 +33,8 @@ svn co https://github.com/sirpdboy/sirpdboy-package/trunk/wrtbwmon package/wrtbw
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
 git clone https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
 
+# 修改插件名字
+sed -i 's/"流量"/"实时流量监测"/g' `grep "流量" -rl ./`
+
 ./scripts/feeds update -a
 ./scripts/feeds install -a
