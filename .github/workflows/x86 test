@@ -1,14 +1,12 @@
-#
-# Copyright (c) 2019-2020 P3TERX <https://p3terx.com>
-#
-# This is free software, licensed under the MIT License.
-# See /LICENSE for more information.
-#
-# https://github.com/P3TERX/Actions-OpenWrt
-# Description: Build OpenWrt using GitHub Actions
-# 初始ip:192.168.0.1
+#===============================================
+# Description: Build OpenWrt
+# File name: build-openwrt.yml
+# Lisence: MIT
+# Author: P3TERX
+# https://github.com/P3TERX
+#===============================================
 
-name: Openwrt-x86_64-mysetting_ipv6_2in1
+name: X86_64 OpenWrt
 
 on:
   repository_dispatch:
@@ -18,20 +16,21 @@ on:
         description: 'SSH connection to Actions'
         required: false
         default: 'false'
+  schedule:
+    - cron: '0 22 * * *'
 
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
-  FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: x86_64-mysetting_ipv6_2in1.config
-  DIY_P1_SH: x86_64-mysetting_ipv6_2in1-part1.sh
-  DIY_P2_SH: x86_64-mysetting_ipv6_2in1-part2.sh
-  UPLOAD_BIN_DIR: true
-  UPLOAD_FIRMWARE: true
-  UPLOAD_COWTRANSFER: false
-  UPLOAD_WETRANSFER: false
+  FEEDS_CONF: x86/feeds.conf.default
+  CONFIG_FILE: x86/.config
+  DIY_P1_SH: x86/diy-part1.sh
+  DIY_P2_SH: x86/diy-part2.sh
+  UPLOAD_BIN_DIR: false
+  UPLOAD_FIRMWARE: false
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
+  FILE_NAME: x86_64
 
 jobs:
   build:
@@ -152,36 +151,3 @@ jobs:
           默认IP：10.10.10.10 默认密码：password
           当前使用版本:【编译前的最后一次[➦主源码](https://github.com/coolsnowwolf/lede)更新记录】
           ${{ env.useVersionInfo }}
-
-    - name: Upload firmware to cowtransfer
-      id: cowtransfer
-      if: steps.organize.conclusion == 'success' && env.UPLOAD_COWTRANSFER == 'true' && !cancelled()
-      run: |
-        curl -fsSL git.io/file-transfer | sh
-        ./transfer cow --block 2621440 -s -p 64 --no-progress ${FIRMWARE} 2>&1 | tee cowtransfer.log
-        echo "::warning file=cowtransfer.com::$(cat cowtransfer.log | grep https)"
-        echo "::set-output name=url::$(cat cowtransfer.log | grep https | cut -f3 -d" ")"
-        
-    - name: Upload firmware to WeTransfer
-      id: wetransfer
-      if: steps.organize.conclusion == 'success' && env.UPLOAD_WETRANSFER == 'true' && !cancelled()
-      run: |
-        curl -fsSL git.io/file-transfer | sh
-        ./transfer wet -s -p 16 --no-progress ${FIRMWARE} 2>&1 | tee wetransfer.log
-        echo "::warning file=wetransfer.com::$(cat wetransfer.log | grep https)"
-        echo "::set-output name=url::$(cat wetransfer.log | grep https | cut -f3 -d" ")"
-
-    - name: Delete workflow runs
-      uses: GitRML/delete-workflow-runs@main
-      with:
-        retain_days: 365
-        keep_minimum_runs: 10
-
-    - name: Remove old Releases
-      uses: dev-drprasad/delete-older-releases@v0.1.0
-      if: env.UPLOAD_RELEASE == 'true' && !cancelled()
-      with:
-        keep_latest: 3
-        delete_tags: true
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
