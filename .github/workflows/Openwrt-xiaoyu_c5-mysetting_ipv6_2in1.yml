@@ -149,14 +149,14 @@ jobs:
       uses: ncipollo/release-action@v1
       if: steps.organize.outputs.status == 'success' && env.UPLOAD_RELEASE == 'true' && !cancelled()
       with:
-        name: R${{ env.DATE }} for ${{ env.FILE_NAME }}
+        name: ${{ env.FILE_NAME }}_${{ env.DATE }} 
         artifacts: ${{ env.FIRMWARE }}/*
         allowUpdates: true
         tag: ${{ env.FILE_NAME }}
         token: ${{ secrets.GITHUB_TOKEN }}
         body: |
-          This is OpenWrt firmware for X86_64
-          * 这是x86_64固件，集成的插件与PLUS一致
-          默认IP：10.10.10.10 默认密码：password
-          当前使用版本:【编译前的最后一次[➦主源码](https://github.com/coolsnowwolf/lede)更新记录】
-          ${{ env.useVersionInfo }}
+          This is OpenWrt firmware for xiaoyu_c5
+          * 默认IP：192.168.0.1
+          默认用户名：root
+          默认密码：password
+       
