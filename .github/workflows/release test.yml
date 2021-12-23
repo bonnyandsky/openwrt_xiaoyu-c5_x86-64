@@ -1,8 +1,9 @@
 name: Releases
 
 on: 
-  repository_dispatch:
-  workflow_dispatch:
+  push:
+    tags:
+    - '*'
 
 jobs:
 
@@ -12,9 +13,6 @@ jobs:
     - uses: actions/checkout@v2
     - uses: ncipollo/release-action@v1
       with:
-        name: test1
-        allowUpdates: true
         artifacts: "release.tar.gz,foo/*.txt"
-        bodyFile: "README.md"
-        tag: test
+        bodyFile: "body.md"
         token: ${{ secrets.GITHUB_TOKEN }}
