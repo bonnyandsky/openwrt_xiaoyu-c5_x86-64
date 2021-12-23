@@ -12,7 +12,9 @@ jobs:
     - uses: actions/checkout@v2
     - uses: ncipollo/release-action@v1
       with:
+        name: test1
         allowUpdates: true
         artifacts: "release.tar.gz,foo/*.txt"
         bodyFile: "README.md"
+        tag:test
         token: ${{ secrets.GITHUB_TOKEN }}
