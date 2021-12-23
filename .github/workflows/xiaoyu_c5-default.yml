@@ -22,17 +22,17 @@ on:
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
-  FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: xiaoyu_c5-default.config
-  DIY_P1_SH: xiaoyu_c5-default-part1.sh
-  DIY_P2_SH: xiaoyu_c5-default-part2.sh
+  FEEDS_CONF: xiaoyu-c5_default/feeds.conf.default
+  CONFIG_FILE: xiaoyu-c5_default/.config
+  DIY_P1_SH: xiaoyu-c5_default/diy_part1.sh
+  DIY_P2_SH: xiaoyu-c5_default/diy_part2.sh
   UPLOAD_BIN_DIR: true
   UPLOAD_FIRMWARE: true
   UPLOAD_COWTRANSFER: false
   UPLOAD_WETRANSFER: false
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
-  FILE_NAME: xiaoyu_c5_default
+  FILE_NAME: xiaoyu_c5-default
 
 jobs:
   build:

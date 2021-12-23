@@ -22,16 +22,17 @@ on:
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
-  FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: x86_64-mysetting_ipv6_2in1.config
-  DIY_P1_SH: x86_64-mysetting_ipv6_2in1-part1.sh
-  DIY_P2_SH: x86_64-mysetting_ipv6_2in1-part2.sh
+  FEEDS_CONF: x86-64_mysetting-ipv6-2in1/feeds.conf.default
+  CONFIG_FILE: x86-64_mysetting-ipv6-2in1/.config
+  DIY_P1_SH: x86-64_mysetting-ipv6-2in1/diy_part1.sh
+  DIY_P2_SH: x86-64_mysetting-ipv6-2in1/diy_part2.sh
   UPLOAD_BIN_DIR: true
   UPLOAD_FIRMWARE: true
   UPLOAD_COWTRANSFER: false
   UPLOAD_WETRANSFER: false
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
+  FILE_NAME: x86-64_mysetting-ipv6-2in1
 
 jobs:
   build:
