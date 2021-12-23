@@ -130,10 +130,10 @@ jobs:
       if: steps.compile.outputs.status == 'success' && !cancelled()
       run: |
         cp openwrt/.config openwrt/bin/packages/build.config
-        cd openwrt/bin/packages
+        cd $GITHUB_WORKSPACE/openwrt/bin/packages
         tar -zcvf Packages.tar.gz */*
-        mv *.config *.tar.gz openwrt/bin/targets/*/*
-        cd openwrt/bin/targets/*/*
+        mv *.config *.tar.gz $GITHUB_WORKSPACE/openwrt/bin/targets/*/*
+        cd $GITHUB_WORKSPACE/openwrt/bin/targets/*/*
         rm -rf packages sha256sums
         echo "FIRMWARE=$PWD" >> $GITHUB_ENV
         echo "::set-output name=status::success"
