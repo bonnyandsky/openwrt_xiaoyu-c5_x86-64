@@ -16,5 +16,5 @@ jobs:
         allowUpdates: true
         artifacts: "release.tar.gz,foo/*.txt"
         bodyFile: "README.md"
-        tag:test
+        tag: test
         token: ${{ secrets.GITHUB_TOKEN }}
