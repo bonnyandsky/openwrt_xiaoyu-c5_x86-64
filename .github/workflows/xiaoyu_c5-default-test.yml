@@ -176,7 +176,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         name: ${{ env.FILE_NAME }}_${{ env.DATE }}
-        tag_name: ${{ env.FILE_NAME }}_${{ env.DATE }}
+        tag_name: ${{ env.FILE_NAME }}_${{ env.FILE_DATE }}
         body: |
           This is OpenWrt firmware for xiaoyu_c5
           * 默认IP：192.168.0.1
