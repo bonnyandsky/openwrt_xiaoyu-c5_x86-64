@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 # 初始ip:192.168.0.1
 
-name: x86-64_default-ipv6
+name: x86-64_ipv6-default
 
 on:
   repository_dispatch:
@@ -22,17 +22,17 @@ on:
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
-  FEEDS_CONF: x86-64_default-ipv6/feeds.conf.default
-  CONFIG_FILE: x86-64_default-ipv6/.config
-  DIY_P1_SH: x86-64_default-ipv6/diy_part1.sh
-  DIY_P2_SH: x86-64_default-ipv6/diy_part2.sh
+  FEEDS_CONF: x86-64_ipv6-default/feeds.conf.default
+  CONFIG_FILE: x86-64_ipv6-default/.config
+  DIY_P1_SH: x86-64_ipv6-default/diy_part1.sh
+  DIY_P2_SH: x86-64_ipv6-default/diy_part2.sh
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   UPLOAD_COWTRANSFER: true
   UPLOAD_WETRANSFER: true
   UPLOAD_RELEASE: false
   TZ: Asia/Shanghai
-  FILE_NAME: x86-64_default-ipv6
+  FILE_NAME: x86-64_ipv6-default
 
 jobs:
   build:
@@ -183,7 +183,7 @@ jobs:
         tag: ${{ env.FILE_NAME }}
         token: ${{ secrets.GITHUB_TOKEN }}
         body: |
-          This is OpenWrt firmware for x86-64_default-ipv6
+          This is OpenWrt firmware for x86-64_ipv6-default
           * 默认IP：192.168.0.1
           默认用户名：root
           默认密码：password
