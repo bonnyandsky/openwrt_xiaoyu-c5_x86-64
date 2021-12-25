@@ -175,7 +175,8 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: ${{ steps.tag.outputs.release_tag }}
+        name: ${{ env.FILE_NAME }}_${{ env.DATE }}
+        tag_name: ${{ env.FILE_NAME }}
         body: |
           This is OpenWrt firmware for xiaoyu_c5
           * 默认IP：192.168.0.1
@@ -208,7 +209,7 @@ jobs:
       uses: dev-drprasad/delete-older-releases@v0.1.0
       if: env.UPLOAD_RELEASE == 'true' && !cancelled()
       with:
-        keep_latest: 3
+        keep_latest: 10
         delete_tags: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
