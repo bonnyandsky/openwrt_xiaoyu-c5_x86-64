@@ -26,10 +26,10 @@ env:
   CONFIG_FILE: xiaoyu-c5_default/.config
   DIY_P1_SH: xiaoyu-c5_default/diy_part1.sh
   DIY_P2_SH: xiaoyu-c5_default/diy_part2.sh
-  UPLOAD_BIN_DIR: true
+  UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   UPLOAD_COWTRANSFER: false
-  UPLOAD_WETRANSFER: true
+  UPLOAD_WETRANSFER: false
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
   FILE_NAME: xiaoyu-c5_default
@@ -178,7 +178,7 @@ jobs:
         name: ${{ env.FILE_NAME }}_${{ env.DATE }}
         tag_name: ${{ env.FILE_NAME }}_${{ env.FILE_DATE }}
         body: |
-          This is OpenWrt firmware for xiaoyu-c5_default
+          This is OpenWrt firmware for ${{ env.FILE_NAME }}
           * 默认IP：192.168.0.1
           默认用户名：root
           默认密码：password
@@ -195,6 +195,6 @@ jobs:
       if: env.UPLOAD_RELEASE == 'true' && !cancelled()
       with:
         keep_latest: 3
-        delete_tag_pattern: xiaoyu-c5_default
+        delete_tag_pattern: ${{ env.FILE_NAME }}
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
