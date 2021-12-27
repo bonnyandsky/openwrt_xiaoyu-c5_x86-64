@@ -19,6 +19,7 @@ rm -rf package/lean/luci-app-wrtbwmon
 rm -rf package/lean/luci-theme-argon
 
 # 添加额外软件包，不在根目录要用svn co，然后tree/main替换成trunk
+# git clone https://github.com/sirpdboy/luci-app-advanced package/luci-app-advanced
 git clone https://github.com/esirplayground/luci-app-poweroff package/luci-app-poweroff
 svn co https://github.com/sirpdboy/sirpdboy-package/trunk/luci-app-advanced package/luci-app-advanced
 svn co https://github.com/sirpdboy/sirpdboy-package/trunk/luci-app-netdata package/luci-app-netdata
@@ -31,6 +32,9 @@ svn co https://github.com/sirpdboy/sirpdboy-package/trunk/wrtbwmon package/wrtbw
 # Themes
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
 git clone https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
+
+# 修改插件名字
+sed -i 's/"流量"/"实时流量监测"/g' `grep "流量" -rl ./`
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
