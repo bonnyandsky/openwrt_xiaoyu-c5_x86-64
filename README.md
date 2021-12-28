@@ -21,7 +21,7 @@ cd lede
 lede\feeds.conf.default添加
 ```bash
 src-git helloworld https://github.com/fw876/helloworld
-src-git lienol https://github.com/xiaorouji/openwrt-passwall
+src-git passwall https://github.com/xiaorouji/openwrt-passwall
 ```
 
 ./scripts/feeds update -a
