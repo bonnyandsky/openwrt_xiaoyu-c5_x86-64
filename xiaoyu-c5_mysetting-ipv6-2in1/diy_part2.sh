@@ -11,7 +11,7 @@
 #
 
 # Modify default IP
-sed -i 's/192.168.1.1/192.168.0.1/g' package/base-files/files/bin/config_generate
+# sed -i 's/192.168.1.1/192.168.0.1/g' package/base-files/files/bin/config_generate
 
 # 移除重复软件包
 rm -rf package/lean/luci-app-netdata
