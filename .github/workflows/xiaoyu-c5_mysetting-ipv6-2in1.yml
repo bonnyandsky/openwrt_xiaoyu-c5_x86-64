@@ -182,7 +182,7 @@ jobs:
         body: |
           This is OpenWrt firmware for ${{ env.FILE_NAME }}
           * version：${{ env.version }}
-          默认IP：192.168.0.1
+          默认IP：192.168.1.1
           默认用户名：root
           默认密码：password
 
