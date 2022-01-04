@@ -13,7 +13,7 @@
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.0.1/g' package/base-files/files/bin/config_generate
 
-# 删除默认密码
+# 删除默认密码 第二条可以起作用，但是在immortalwrt不起作用。第一条可以用于immortalwrt
 #sed -i '34s/sed/# sed/g' package/lean/default-settings/files/zzz-default-settings
 sed -i "/CYXluq4wUazHjmCDBCqXF/d" package/lean/default-settings/files/zzz-default-settings
 
