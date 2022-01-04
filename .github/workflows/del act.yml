@@ -20,8 +20,16 @@ jobs:
     runs-on: ubuntu-20.04
 
     steps:
-    - name: Checkout
-      uses: actions/checkout@main
+    - name: delete-artifacts
+      uses: kolpav/purge-artifacts-action@v1
+      with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          expire-in: 0days # Setting this to 0 will delete all artifacts
+          
+    - name: Remove old artifacts
+      uses: c-hive/gha-remove-artifacts@v1
+      with:
+        age: '1 month'
 
     - name: Delete workflow runs
       uses: GitRML/delete-workflow-runs@main
