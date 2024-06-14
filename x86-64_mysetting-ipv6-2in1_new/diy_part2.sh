@@ -25,7 +25,7 @@ sed -i "/CYXluq4wUazHjmCDBCqXF/d" package/lean/default-settings/files/zzz-defaul
 # 添加额外软件包，不在根目录要用svn co，然后tree/main替换成trunk
 # svn co https://github.com/sirpdboy/sirpdboy-package/trunk/luci-app-advanced package/luci-app-advanced
 # svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-eqos package/luci-app-eqos
-# git clone https://github.com/esirplayground/luci-app-poweroff package/luci-app-poweroff
+git clone https://github.com/esirplayground/luci-app-poweroff package/luci-app-poweroff
 # svn co https://github.com/sirpdboy/sirpdboy-package/trunk/luci-app-netdata package/luci-app-netdata
 # svn co https://github.com/sirpdboy/sirpdboy-package/trunk/luci-app-netspeedtest package/luci-app-netspeedtest
 
@@ -38,7 +38,7 @@ sed -i "/CYXluq4wUazHjmCDBCqXF/d" package/lean/default-settings/files/zzz-defaul
 # git clone https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
 
 # 修改插件名字
-# sed -i 's/"流量"/"实时流量监测"/g' `grep "流量" -rl ./`
+sed -i 's/"流量"/"实时流量监测"/g' `grep "流量" -rl ./`
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
